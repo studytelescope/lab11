@@ -16,8 +16,11 @@ $ open https://ngrok.com/
 
 ```sh
 $ cd ~
+# create a couple of home directories
 $ mkdir install
 $ mkdir tmp
+
+#set global vars
 $ export HOME_PREFIX=`pwd`/install
 $ echo $HOME_PREFIX
 /home/johnsnow/install
@@ -30,6 +33,7 @@ $ cd tmp
 ```
 
 ```sh
+# get libevent archive and unpack it
 $ wget https://github.com/libevent/libevent/releases/download/release-2.1.8-stable/libevent-2.1.8-stable.tar.gz
 --2020-04-23 10:56:27--  https://github.com/libevent/libevent/releases/download/release-2.1.8-stable/libevent-2.1.8-stable.tar.gz
 Resolving github.com (github.com)... 140.82.118.4
@@ -88,6 +92,7 @@ libevent-2.1.8-stable/include/evdns.h
 libevent-2.1.8-stable/include/include.am
 libevent-2.1.8-stable/include/evhttp.h
 
+# set up library
 $ cd libevent-2.1.8-stable
 $ ./configure --prefix=${HOME_PREFIX}
 checking for a BSD-compatible install... /usr/bin/install -c
@@ -100,6 +105,7 @@ checking for gawk... gawk
 config.status: executing depfiles commands
 config.status: executing libtool commands
 
+# build and install
 $ make && make install
 Libraries have been installed in:
    /home/johnsnow/install/lib
@@ -133,6 +139,7 @@ $ cd ..
 ```
 
 ```sh
+# install ncurses programming library providing an application programming interface
 $ wget http://invisible-island.net/datafiles/release/ncurses.tar.gz
 --2020-04-23 11:05:57--  http://invisible-island.net/datafiles/release/ncurses.tar.gz
 Resolving invisible-island.net (invisible-island.net)... 192.124.249.12
@@ -233,6 +240,7 @@ $ cd ..
 
 
 ```sh
+# install tmux
 $ wget https://github.com/tmux/tmux/releases/download/2.5/tmux-2.5.tar.gz
 --2020-04-23 11:43:14--  https://github.com/tmux/tmux/releases/download/2.5/tmux-2.5.tar.gz
 Resolving github.com (github.com)... 140.82.118.3
@@ -280,6 +288,7 @@ $ cd ..
 ```
 
 ```sh
+# install ngroks using tmux
 $ wget https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip
 --2020-04-23 12:19:16--  https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip
 Resolving bin.equinox.io (bin.equinox.io)... 52.73.195.55, 3.228.72.85, 3.227.142.238, ...
@@ -298,8 +307,11 @@ $ mv ngrok ${HOME_PREFIX}/bin
 ```
 
 ```sh
+#set global variables
 $ export LD_LIBRARY_PATH=${HOME_PREFIX}/lib
 $ export PATH="${HOME_PREFIX}/bin:${PATH}"
+
+# create shared terminal
 $ tmux
 
 #many directories inside
@@ -314,6 +326,7 @@ $ rm -rf tmp install
 ```
 
 ```sh
+# faster way of ngrok installation
 $ brew install tmux ngrok # or use linuxbrew 🎉
 ```
 
