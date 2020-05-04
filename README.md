@@ -14,6 +14,8 @@ $ open https://ngrok.com/
 
 ## Tutorial
 
+Prepare environment dependencies for installation
+
 ```sh
 $ cd ~
 # create a couple of home directories
@@ -29,8 +31,10 @@ $ export USERNAME=`whoami`
 ```
 
 ```sh
-$ cd tmp
+$ cd tmp # get into folder
 ```
+
+Download and configure libevent
 
 ```sh
 # get libevent archive and unpack it
@@ -51,6 +55,7 @@ libevent-2.1.8-stable.tar.gz          100%[=====================================
 
 2020-04-23 10:56:31 (449 KB/s) - ‘libevent-2.1.8-stable.tar.gz’ saved [1026485/1026485]
 
+# unpack libevent archive
 $ tar -xvzf libevent-2.1.8-stable.tar.gz
 libevent-2.1.8-stable/
 libevent-2.1.8-stable/util-internal.h
@@ -138,8 +143,10 @@ make[1]: Leaving directory '/home/johnsnow/tmp/libevent-2.1.8-stable'
 $ cd ..
 ```
 
+Install ncurses programming library providing an application programming interface
+
 ```sh
-# install ncurses programming library providing an application programming interface
+# Download and configure ncurses
 $ wget http://invisible-island.net/datafiles/release/ncurses.tar.gz
 --2020-04-23 11:05:57--  http://invisible-island.net/datafiles/release/ncurses.tar.gz
 Resolving invisible-island.net (invisible-island.net)... 192.124.249.12
@@ -156,6 +163,7 @@ ncurses.tar.gz                        100%[=====================================
 
 2020-04-23 11:05:59 (2,26 MB/s) - ‘ncurses.tar.gz’ saved [3425862/3425862]
 
+#unpack ncurses
 $ tar -xvzf ncurses.tar.gz
 ncurses-6.2/
 ncurses-6.2/aclocal.m4
@@ -238,6 +246,7 @@ make[1]: Leaving directory '/home/johnsnow/tmp/ncurses-6.2/c++'
 $ cd ..
 ```
 
+Install and configure Tmux
 
 ```sh
 # install tmux
@@ -287,6 +296,8 @@ $ make && make install
 $ cd ..
 ```
 
+download NGROK
+
 ```sh
 # install ngroks using tmux
 $ wget https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip
@@ -305,6 +316,8 @@ Archive:  ngrok-stable-linux-amd64.zip
   inflating: ngrok  
 $ mv ngrok ${HOME_PREFIX}/bin
 ```
+
+Prepare environments
 
 ```sh
 #set global variables
@@ -334,6 +347,8 @@ $ brew install tmux ngrok # or use linuxbrew 🎉
 $ tmux new -s session_with_group
 ```
 
+Create and launch ngrok server
+
 ```sh
 # Alisa:
 $ open https://ngrok.com/signup # get token
@@ -351,8 +366,9 @@ Forwarding                    tcp://0.tcp.ngrok.io:17393 -> localhost:22
                                                                                                              
 Connections                   ttl     opn     rt1     rt5     p50     p90                                    
                               2       0       0.00    0.00    222.41  324.81 
-<порт_ngrok_сервера>
 ```
+
+Connect to the server above
 
 ```sh
 # Bob:
